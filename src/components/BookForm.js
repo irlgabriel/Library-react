@@ -1,7 +1,7 @@
 import React from "react";
 
-const BookForm = ({books, setBooks}) => {
-  const submitHandler = (e) => {
+class BookForm extends React.Component {
+  submitHandler(e) {
     e.preventDefault();
     const form = e.target.parentElement;
     setBooks([
@@ -18,19 +18,21 @@ const BookForm = ({books, setBooks}) => {
     form.pages.value = "";
     form.readStatus.value = "read";
   }
-  return (
-    <form>
-      <h3>Add New Book!</h3>
-      <input name="title" type="text" placeholder="Book title.."></input>
-      <input name="author" type="text" placeholder="Book author.."></input>
-      <input name="pages" type="text" placeholder="Number of pages.."></input>
-      <select name="readStatus">
-        <option value="read">Read</option>
-        <option value="unread">Unread</option>
-      </select>
-      <button onClick={submitHandler} className="add-book" type="submit">Add Book</button>
-    </form>
-  )
+  render() {
+    return (
+      <form>
+        <h3>Add New Book!</h3>
+        <input name="title" type="text" placeholder="Book title.."></input>
+        <input name="author" type="text" placeholder="Book author.."></input>
+        <input name="pages" type="text" placeholder="Number of pages.."></input>
+        <select name="readStatus">
+          <option value="read">Read</option>
+          <option value="unread">Unread</option>
+        </select>
+        <button onClick={submitHandler} className="add-book" type="submit">Add Book</button>
+      </form>
+    )
+  }
 }
 
 export default BookForm;

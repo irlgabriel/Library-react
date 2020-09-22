@@ -7,22 +7,23 @@ import Library from "./components/Library"
 import Footer from "./components/Footer"
 import BookForm from './components/BookForm';
 
-function App() {
-  const [books, setBooks] = useState([]);
-  return (
-    <div className="App">
-      <Header />
-      <BookForm
-        books={books} 
-        setBooks={setBooks}
-      />
-      <Library
-        books={books}
-        setBooks={setBooks}
-      />
-      <Footer />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: [],
+    }
+  }
+  render () {
+    return (
+      <div className="App">
+        <Header />
+        <BookForm />
+        <Library />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
