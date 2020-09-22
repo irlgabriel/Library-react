@@ -9,30 +9,16 @@ import BookForm from './components/BookForm';
 
 function App() {
   const [books,setBooks] = useState([]);
-  const [bookTitle, setTitle] = useState("");
-  const [bookAuthor, setAuthor] = useState("");
-  const [bookPages, setPages] = useState("");
-  const [bookRead, setRead] = useState("true");
   return (
     <div className="App">
       <Header />
       <BookForm
         books={books} 
         setBooks={setBooks}
-        bookTitle={bookTitle} 
-        setTitle={setTitle}
-        bookAuthor={bookAuthor}
-        setAuthor={setAuthor}
-        bookPages={bookPages}
-        setPages={setPages}
-        bookRead={bookRead}
-        setRead={setRead} 
       />
       <Library
-        setBooks={setBooks}
         books={books}
-        bookRead={bookRead}
-        setRead={setRead}
+        setBooks={setBooks}
       />
       <Footer />
     </div>

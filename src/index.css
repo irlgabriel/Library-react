@@ -40,8 +40,8 @@ form h3 {
   text-align: center;
 }
 
-form input {
-  width: 25%;
+form input[type='text'] {
+  width: 33%;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid lightgray;
@@ -55,15 +55,15 @@ form input:focus {
 
 form select {
   padding: 3px 0;
+  width: 100%;
 }
 
 form select:focus {
   outline: none;
-
 }
 
 button {
-  margin: auto;
+  margin: 10px auto;
   padding: 10px;
   border: none;
   border-radius: 3px;
@@ -98,11 +98,16 @@ footer a {
 .book {
   padding: 10px;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgb(116, 109, 109);
+  color: white;
   position: relative;
   margin: 20px;
   width: 20%;
-  min-height: 200px;
+  min-height: 300px;
+}
+
+.book-read {
+  opacity: 0.4;
 }
 
 .book-title {
@@ -125,12 +130,12 @@ footer a {
   right: 10px;
   font-size: 24px;
   transform: rotate(0deg) scale(1);
-  transition: all 0.5 ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .fa-trash:hover {
   transform: rotate(45deg) scale(1.2);
-  color: lightcoral;
+  color: rgb(247, 0, 0);
 }
 
 @media only screen and (max-width: 600px) {

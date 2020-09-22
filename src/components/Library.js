@@ -3,18 +3,15 @@ import React from "react";
 // Importing components
 import Book from "./Book"
 
-const Library = (props) => {
+const Library = (setBooks, books) => {
 
   return (
     <div className="library">
-      {props.books.map(book =>
+      {books.map(book =>
       <Book 
-      bookRead={props.bookRead}
-      setRead={props.setRead}
-      setBooks={props.setBooks} 
       book={book}
-      books={props.books}
-
+      setBooks={setBooks} 
+      books={books}
       />
       )}
     </div>

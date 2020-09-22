@@ -1,18 +1,28 @@
 import React from "react";
 
-const Book = (props) => {
-  function toggleReadStatus() {
-    props.setRead(!props.readBook)
+const Book = (book, books, setBooks) => {
+
+  function toggleReadStatus(e) {
+    e.stopPropagation();
+    setBooks([books.map(el => {
+      if(el.id === book.id) {
+        return {
+        ...book, readStatus: (book.readStatus == "read" ? "unread" : "read"),
+        }
+      }
+    })])
   }
-  function deleteHandler() {
-    props.setBooks(props.books.filter(el => el.id !== props.book.id))
+
+  function deleteHandler(e) {
+    e.stopPropagation()
+    setBooks([books.filter(el => el.id !== book.id)])
   }
   return (
-    <div onClick={toggleReadStatus} className="book">
-      <h3 className="book-title">{props.book.title}</h3>
-      <h5 className="book-author">{props.book.author}</h5>
+    <div onClick={toggleReadStatus} className={`book${book.readStatus == "read" ? " book-read" : ""}`}>
+      <h3 className="book-title">{book.title}</h3>
+      <h5 className="book-author">{book.author}</h5>
       <div onClick={deleteHandler} className="fas fa-trash"></div>
-      <p className="book-footer">{props.book.pages}</p>
+      <p className="book-footer">{book.pages}</p>
     </div>
   )
 }
