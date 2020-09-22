@@ -88,3 +88,71 @@ footer a {
   text-decoration: none;
   color: lightcoral;
 }
+
+.library {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.book {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  margin: 20px;
+  width: 20%;
+  min-height: 200px;
+}
+
+.book-title {
+  text-align: center;
+}
+
+.book-author {
+  text-align: right;
+}
+
+.book-footer {
+  position: absolute;
+  bottom: 15px;
+  left: 45%;
+}
+
+.fa-trash {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 24px;
+  transform: rotate(0deg) scale(1);
+  transition: all 0.5 ease-in-out;
+}
+
+.fa-trash:hover {
+  transform: rotate(45deg) scale(1.2);
+  color: lightcoral;
+}
+
+@media only screen and (max-width: 600px) {
+  .book {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .book {
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .book {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .book {
+    width: 15%;
+  }
+}

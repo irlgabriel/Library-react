@@ -11,24 +11,36 @@ const BookForm = (props) => {
     props.setPages(e.target.value)
   }
   const inputReadHandler = (e) => {
-    console.log(e.target.value)
+    e.target.value == "false" ? props.setRead(false) : props.setRead(true)
   }
   const submitHandler = (e) => {
     e.preventDefault();
-    
-    props.setBooks([...props.books, {title: props.bookTitle, author: props.bookAuthor, pages: props.bookPages}])
-    
+
+    props.setBooks([
+      ...props.books,
+      { title: props.bookTitle, 
+        author: props.bookAuthor, 
+        pages: props.bookPages,
+        readStatus: props.bookRead,
+        id: Math.random(1000),
+      }
+    ])
+    props.setAuthor("");
+    props.setPages("");
+    props.setRead("");
+    props.setTitle("");
+
   }
   return (
     <form>
       <h3>Add New Book!</h3>
-      <input onChange={inputTitleHandler} name="title" type="text" placeholder="Book title.."></input>
-      <input onChange={inputAuthorHandler} name="author" type="text" placeholder="Book author.."></input>
-      <input onChange={inputPagesHandler} name="pages" type="text" placeholder="Number of pages.."></input>
-      <select onChange={inputReadHandler}>
-        <option value="please-select">Did You Read It?</option>
-        <option value="read">Read</option>
-        <option value="unread">Unread</option>
+      <input value={props.bookTitle} onChange={inputTitleHandler} name="title" type="text" placeholder="Book title.."></input>
+      <input value={props.bookAuthor} onChange={inputAuthorHandler} name="author" type="text" placeholder="Book author.."></input>
+      <input value={props.bookPages} onChange={inputPagesHandler} name="pages" type="text" placeholder="Number of pages.."></input>
+      <select value={props.bookRead} onChange={inputReadHandler}>
+        <option value="default">Did you read it?</option>
+        <option value="true">Read</option>
+        <option value="false">Unread</option>
       </select>
       <button onClick={submitHandler} className="add-book" type="submit">Add Book</button>
     </form>
