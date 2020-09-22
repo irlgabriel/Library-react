@@ -1,0 +1,6 @@
+.App {
+  background: rgba(0, 204, 255, 0.137);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
