@@ -1,11 +1,11 @@
 import React from "react";
 
-const BookForm = (props) => {
+const BookForm = ({books, setBooks}) => {
   const submitHandler = (e) => {
     e.preventDefault();
     const form = e.target.parentElement;
-    props.setBooks([
-      ...props.books,
+    setBooks([
+      ...books,
       { title: form.title.value, 
         author: form.author.value, 
         pages: form.pages.value,

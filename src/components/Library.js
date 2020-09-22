@@ -3,10 +3,10 @@ import React from "react";
 // Importing components
 import Book from "./Book"
 
-const Library = (setBooks, books) => {
-
+const Library = ({books, setBooks}) => {
   return (
     <div className="library">
+
       {books.map(book =>
       <Book 
       book={book}

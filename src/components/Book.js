@@ -1,16 +1,16 @@
 import React from "react";
 
-const Book = (book, books, setBooks) => {
+const Book = ({book, books, setBooks}) => {
 
   function toggleReadStatus(e) {
     e.stopPropagation();
-    setBooks([books.map(el => {
+    setBooks(books.map(el => {
       if(el.id === book.id) {
         return {
         ...book, readStatus: (book.readStatus == "read" ? "unread" : "read"),
         }
       }
-    })])
+    }))
   }
 
   function deleteHandler(e) {
